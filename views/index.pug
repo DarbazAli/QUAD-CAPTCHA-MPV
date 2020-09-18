@@ -3,8 +3,28 @@ html
     include ./head.pug
     body
 
-        h1 #{message}
-        a(href="/") Home
-        a(href="/about") About
+        a(href="/") QUAD CAPTCHA
+
+        section(class="container")
+            div(class="row text")
+                h1 Next-Gen Bot Detector
+
+                ul
+                    li Fast
+                    li Secure
+                    li Game-level Experience 
+
+                p.
+                    QUAD CAPTCHA is a gamified quantum-proof bot detector with 100% security.
+
+            div(class="row form")
+                form(action="/register", method="post")
+                    h3 Join the Waitlist
+                    label(for="email") Company Email
+                    input(type="email", name="email" id="email" placeholder="company_x@example.com")
+
+                    input(type="checkbox", name="quad_captcha_check")
+
+                    button(type="submit") Join the Waitlist
 
         include ./footer.pug
