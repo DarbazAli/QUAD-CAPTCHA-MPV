@@ -2,9 +2,13 @@ doctype html
 html
     include ./head.pug
     body
+        
         section(class="hero")
             a(href="/" class="logo") <span>QUAD</span> CAPTCHA
 
             div(class="container")
                 include ./heroContent
                 include ./form
+
+        script(src="public/script.js")
+        script(src="public/G-SHIELD.js")
