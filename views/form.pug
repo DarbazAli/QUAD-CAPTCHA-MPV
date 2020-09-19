@@ -1,0 +1,12 @@
+div(class="row form")
+    form(action="/register", method="post")
+        h3 Join the Waitlist
+        label(for="email") Company Email
+        br
+        input(type="email", name="email" id="email" placeholder="company_x@example.com")
+        br
+
+        input(type="checkbox", name="quad_captcha_check" id='check')
+        label(for="check") I'm Human
+        br
+        button(type="submit") Join the Waitlist
