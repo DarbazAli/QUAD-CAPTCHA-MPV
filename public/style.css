@@ -147,7 +147,7 @@ p {
     height: 64px;
     font-weight: normal;
     font-size: 17px;
-    line-height: 36px;
+    line-height: 1.5;
     text-align: left;
     /* color: #3c3c3c; */
     opacity: 0.9;

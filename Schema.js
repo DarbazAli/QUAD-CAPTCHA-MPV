@@ -3,8 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const personSchema = new Schema({
-    email: String,
-    captcha: Boolean
+    email: String
 })
 
 exports.Person = mongoose.model('Person', personSchema)
