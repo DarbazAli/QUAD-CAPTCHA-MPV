@@ -22,8 +22,8 @@ section.hero {
     background-image: url("./hero_back.svg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: auto;
-    padding: 40px 0;
+    background-size: cover;
+    padding: 20px 0;
 }
 
 .container {
@@ -33,7 +33,7 @@ section.hero {
     flex-direction: row;
     justify-content: space-between;
     text-align: left;
-    margin: 50px auto;
+    margin: 5% auto;
     padding: 20px 10px;
     /* background-color: whitesmoke; */
 
@@ -107,6 +107,7 @@ a.logo {
     text-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
     text-decoration: none;
     color: #3c3c3c;
+    /* text-decoration: underline; */
 }
 
 a.logo span {
@@ -116,7 +117,7 @@ a.logo span {
 
 ul {
     list-style: none;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 ul li {
@@ -171,7 +172,7 @@ form {
 }
 
 
-button {
+#qc-submit {
     font-size: 20px;
     font-weight: 500;
   
@@ -191,6 +192,10 @@ button {
 
     cursor: pointer;
     font-family: Rubik;
+}
+
+button {
+    border: none;
 }
 
 input[type="email"] {
