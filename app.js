@@ -65,16 +65,25 @@ app
         }
 
         else {
-            const newPerson = new Person({
-                email: email
-            })
+            const isExist = Person.count({email: email}, (err, count) => {
+                if ( count > 0 ) {
+                    req.flash('error', 'this email is already in the list')
+                    res.status(401).redirect('/')
+                }
+                else {
+                    const newPerson = new Person({
+                        email: email
+                    })
 
 
-            newPerson.save((err, data) => {
-                if (err) res.send(err)
-                req.flash('success', `Success! ${data.email} added to waitlist`)
-                res.redirect('/');
+                    newPerson.save((err, data) => {
+                        if (err) res.send(err)
+                        req.flash('success', `Success! ${data.email} added to waitlist`)
+                        res.redirect('/');
+                    })
+                }
             })
+            
         }
         
     })
