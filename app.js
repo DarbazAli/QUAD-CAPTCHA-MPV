@@ -85,4 +85,4 @@ app.route("/thank").get((req, res) => {
   res.send(`Hello, it looks like you passed the cpatcha`);
 });
 
-app.listen(3000, () => console.log("Listening on 3000"));
+app.listen(process.env.PORT || 8080, () => console.log("Listening on 3000"));
