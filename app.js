@@ -1,5 +1,11 @@
 const bodyParser = require('body-parser');
-const express = require('express')
+const express = require('express');
+// const MongoClient = require('mongodb').MongoClient;
+const mongoose = require('mongoose');
+require('dotenv').config();
+const Person = require('./Schema').Person;
+
+
 
 const app = express();
 console.clear();
@@ -17,16 +23,27 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
+
+/*==================================================== 
+    CONNECT TO DB
+=====================================================*/
+const MONGO_URI = process.env.MONGO_URI;
+mongoose.connect(MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+
+
+
 // create the home url
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Home', message: "Hello There"})
+    res.render('index', {title: 'QUAD CAPTCHA', message: "Hello There"})
 })
 
 app
     .route('/register')
     .post( (req, res) => {
         const {email, quad_captcha} = req.body;
-        // console.log(email, quad)
         if ( quad_captcha ) {
             console.log('thankyou', email, quad_captcha)
         }
