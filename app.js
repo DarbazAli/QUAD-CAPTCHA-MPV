@@ -1,16 +1,26 @@
 const bodyParser = require('body-parser');
 const express = require('express');
-// const MongoClient = require('mongodb').MongoClient;
+const session = require('express-session');
+const flash = require('connect-flash');
+
 const mongoose = require('mongoose');
 require('dotenv').config();
 const Person = require('./Schema').Person;
 
 
 
+
 const app = express();
 console.clear();
 
-app.listen(3000, () => console.log("Listening on 3000"))
+// setup session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}))
+
+app.use(flash());
 
 // setup template engine
 app.set('views', './views');
@@ -37,8 +47,11 @@ mongoose.connect(MONGO_URI, {
 
 // create the home url
 app.get('/', (req, res) => {
-    res.render('index', {title: 'QUAD CAPTCHA', message: "Hello There"})
+    req.flash('message', 'Thisis a message from falsh');
+    res.render('index', {title: 'QUAD CAPTCHA', message: req.flash('message')})
 })
+
+
 
 app
     .route('/register')
@@ -56,3 +69,6 @@ app
         // const { check, email } = req.body;
         res.send(`Hello, it looks like you passed the cpatcha`)
     })
+
+
+app.listen(3000, () => console.log("Listening on 3000"))
