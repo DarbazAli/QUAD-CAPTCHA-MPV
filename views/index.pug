@@ -6,11 +6,12 @@ html
         section(class="hero")
             a(href="/" class="logo") <span>QUAD</span> CAPTCHA
 
+            if success.length > 0
+                p(class="nortification animateOpen")= success
+
             div(class="container")
                 include ./heroContent
                 include ./form
-
-            //- p= message
 
         script(src="public/script.js")
         script(src="public/quadCaptcha.js")

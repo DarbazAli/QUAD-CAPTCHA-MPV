@@ -1,6 +1,9 @@
 div(class="form")
     form(action="/register", method="post")
         h3 Join the Waitlist
+        if (error)
+            each val in error
+                li.error= val
         label(for="email") Company Email
         br
         input(type="email", name="email" id="email" placeholder="company_x@example.com" required)
@@ -10,6 +13,5 @@ div(class="form")
        
         div(class="quad_captcha_anchor")
         br
-        if (message)
-            p= message
+        
         button(type="submit" id="qc-submit") Join the Waitlist

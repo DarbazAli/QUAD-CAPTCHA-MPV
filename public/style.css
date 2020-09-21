@@ -24,6 +24,7 @@ section.hero {
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px 0;
+    position: relative;
 }
 
 .container {
@@ -144,7 +145,7 @@ ul li::before{
 
 p {
     max-width: 400px;
-    height: 64px;
+    /* height: 64px; */
     font-weight: normal;
     font-size: 17px;
     line-height: 1.5;
@@ -153,6 +154,64 @@ p {
     opacity: 0.9;
 }
 
+li.error {
+    color: red;
+    list-style: none;
+    padding: 0;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+
+  
+.nortification{
+    display:block;
+    font-size:14px;
+    width:300px;
+    padding:15px 0;
+    position:absolute;
+    top:0;
+    left:45%;
+    margin-left:-90px;
+    box-sizing:border-box;
+
+ 
+
+    width: 400px;
+    height: 46px;
+    border-radius: 46px;
+    background: #cce3cc;
+
+
+    font-family: Rubik;
+    font-weight: 500;
+    font-size: 15px;
+    text-align: center;
+    color: #065022;
+
+
+}
+
+.animateOpen{
+    animation: moveOpen 4s;
+    -webkit-animation:moveOpen 4s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+}
+/* Safari and Chrome */
+@-webkit-keyframes moveOpen 
+    {
+        from {-webkit-transform: translate(0,-100px);}
+        10% {-webkit-transform: translate(0,20px);}
+        12% {-webkit-transform: translate(0,22px);}
+        16% {-webkit-transform: translate(0,20px);}
+        80% {-webkit-transform: translate(0,20px);}
+        85% {-webkit-transform: translate(0,25px);}
+        to {-webkit-transform: translate(0,-100px);}
+}
 
 
 form {

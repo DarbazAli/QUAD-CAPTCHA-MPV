@@ -48,7 +48,8 @@ mongoose.connect(MONGO_URI, {
 // create the home url
 app.get('/', (req, res) => {
     // req.flash('message', 'Thisis a message from falsh');
-    res.render('index', {title: 'QUAD CAPTCHA', message: req.flash('message')})
+    // console.log(req.flash('message'))
+    res.render('index', {title: 'QUAD CAPTCHA', error: req.flash('error'), success: req.flash('success')})
 })
 
 
@@ -57,10 +58,9 @@ app
     .route('/register')
     .post( (req, res) => {
         const {email, quad_captcha} = req.body;
-        console.log(quad_captcha);
+
         if ( !email || !quad_captcha ) {
-            // res.send('there was an error')
-            req.flash('message', 'Please provide an email and sovle cpatcha')
+            req.flash('error', 'Please provide an email and solve the CAPTCHA!')
             res.redirect('/')
         }
 
@@ -69,11 +69,10 @@ app
                 email: email
             })
 
-            // console.log(newPerson);
 
             newPerson.save((err, data) => {
                 if (err) res.send(err)
-                console.log(data)
+                req.flash('success', `Success! ${data.email} added to waitlist`)
                 res.redirect('/');
             })
         }
