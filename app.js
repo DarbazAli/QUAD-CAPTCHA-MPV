@@ -1,7 +1,10 @@
 const bodyParser = require("body-parser");
 const express = require("express");
 const session = require("express-session");
+const helmet = require('helmet');
+
 const flash = require("connect-flash");
+
 
 const mongoose = require("mongoose");
 require("dotenv").config();
@@ -31,6 +34,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(helmet());
 
 /*==================================================== 
     CONNECT TO DB
