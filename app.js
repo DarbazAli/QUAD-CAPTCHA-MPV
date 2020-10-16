@@ -2,7 +2,7 @@
 
 import express from 'express'
 import mongoose from 'mongoose'
-import { config } from 'dotenv'
+import dotenv from 'dotenv'
 
 // custom modules
 import Person from './Schema.js'
@@ -11,7 +11,7 @@ import registerRoute from './routes/registerRoute.js'
 import indexRoute from './routes/indexRoute.js'
 
 const app = express()
-config() // dotenv
+dotenv.config() // dotenv
 
 configApp(app)
 
